@@ -3,6 +3,7 @@ use std::fs;
 use regex::Regex;
 use std::borrow::Cow;
 use sqlformat::format;
+// use reqwest::Client;
 
 fn main() {
     let args: Vec<String> = env::args().collect();
@@ -13,6 +14,7 @@ fn main() {
         .expect("Something went wrong reading the file");
 
     let result = extract_tsql(contents);
+    // format_with_sqlformat (result);
 
     println!("QUERY:\n{}", result);
 }
@@ -40,3 +42,12 @@ fn extract_tsql (content: String) -> String {
     return result.replace("''", "'").into();
 
 }
+
+// fn format_with_sqlformat (content: String) -> String {
+//     let resp = reqwest::blocking::post("https://sqlformat.org/api/v1/format")
+//         .body("sql={}", content)
+//         .send()
+    
+//     println!("{}", resp);
+
+// }

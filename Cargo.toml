@@ -8,3 +8,4 @@ edition = "2021"
 [dependencies]
 regex = "1"
 sqlformat = "^0"
+# reqwest = { version = "^0", default-features = false, features = ["json", "rustls-tls"] }
